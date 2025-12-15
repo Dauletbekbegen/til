@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title %}Тест баптау{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-lg-6">
+        <div class="card p-5 shadow border-0">
+            <h3 class="text-center mb-4 text-primary">Тест баптаулары</h3>
+            <form method="GET" action="{% url 'quiz' %}">
+                <div class="mb-4">
+                    <label class="form-label fw-bold">Шығарманы таңдаңыз:</label>
+                    <select name="work" class="form-select">
+                        <option value="all">Барлық шығармалар</option>
+                        {% for w in works %}<option value="{{ w.id }}">{{ w.title }}</option>{% endfor %}
+                    </select>
+                </div>
+                <div class="mb-5">
+                    <label class="form-label fw-bold">Сұрақ саны:</label>
+                    <select name="count" class="form-select">
+                        <option value="5">5 сұрақ</option>
+                        <option value="10">10 сұрақ</option>
+                        <option value="15">15 сұрақ</option>
+                    </select>
+                </div>
+                <button type="submit" name="start_game" value="true" class="btn btn-primary w-100 btn-lg">Бастау</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,21 @@
+<div class="card p-5 mb-5 text-center shadow-lg border-0" 
+             style="background-color: {% if correct_count >= half_score %}#e6ffed{% else %}#fff0f1{% endif %}; border-left: 8px solid {% if correct_count >= half_score %}var(--bs-success){% else %}var(--bs-danger){% endif %} !important;">
+            
+            <div class="display-3 fw-bold mb-3" style="color: {% if correct_count >= half_score %}var(--bs-success){% else %}var(--bs-danger){% endif %}">
+                {% if correct_count == total_questions %}🎉 ТОЛЫҚТАЙ ДҰРЫС! 🏆{% else %}НӘТИЖЕ{% endif %}
+            </div>
+            
+            <h1 class="fw-bolder">
+                {{ correct_count }}/{{ total_questions }}
+            </h1>
+            <p class="lead text-muted">Сіз {{ total_questions }} сұрақтан <b>{{ correct_count }}</b> дұрыс жауап таптыңыз.</p>
+        </div>
+        
+        {% if correct_count < half_score %}
+        <div class="alert alert-danger mb-4 text-center">
+            <i class="bi bi-exclamation-triangle-fill"></i> Назар аударыңыз: Сіздің нәтижеңіз 50%-тен төмен. Тақырыпты қайталаңыз!
+        </div>
+        {% endif %}
+        ```
+
+Осы өзгерістерден кейін **Django серверін міндетті түрде қайта іске қосыңыз** (`Ctrl+C`, содан кейін `python manage.py runserver`). Бұл қате толығымен жойылуы тиіс.
